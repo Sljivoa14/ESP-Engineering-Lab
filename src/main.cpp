@@ -3,8 +3,6 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_ST7789.h>
 
-#define LCD_MOSI 23
-#define LCD_SCLK 18
 #define LCD_CS   15
 #define LCD_DC   2
 #define LCD_RST  4
