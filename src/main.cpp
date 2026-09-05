@@ -31,10 +31,15 @@ void setup() {
     delay(2000);
 
     lcd.fillScreen(ST77XX_BLACK);
-  
+
+    lcd.setTextColor(ST77XX_WHITE);
+    lcd.setTextSize(3);
+    lcd.setCursor(20, 50);
+    lcd.println("HELLO!");
 
     Serial.println("DISPLAY TEST COMPLETE");
 }
 
 void loop() {
+  
 }
