@@ -14,23 +14,24 @@ void setup() {
     Serial.begin(115200);
     delay(1000);
 
-    // Backlight
+    // Backlight ON
     pinMode(LCD_BLK, OUTPUT);
     digitalWrite(LCD_BLK, HIGH);
 
     // Initialize SPI
-    SPI.begin(LCD_SCLK, -1, LCD_MOSI, LCD_CS);
+    lcd.init(170, 320); // Initialize the 170x320 ST7789
+    
+    lcd.fillScreen(ST77XX_RED);
+    delay(2000);
 
-    // Initialize the 170x320 ST7789
-    lcd.init(170, 320);
+    lcd.fillScreen(ST77XX_GREEN);
+    delay(2000);
 
-    lcd.setRotation(1);
+    lcd.fillScreen(ST77XX_BLUE);
+    delay(2000);
+
     lcd.fillScreen(ST77XX_BLACK);
-
-    lcd.setTextColor(ST77XX_WHITE);
-    lcd.setTextSize(2);
-    lcd.setCursor(10, 20);
-    lcd.println("HELLO!");
+  
 
     Serial.println("DISPLAY TEST COMPLETE");
 }
