@@ -1,45 +1,80 @@
 #include <Arduino.h>
-#include <SPI.h>
+#include <Wire.h>
 #include <Adafruit_GFX.h>
-#include <Adafruit_ST7789.h>
+#include <Adafruit_SSD1306.h>
 
-#define LCD_CS   15
-#define LCD_DC   2
-#define LCD_RST  4
-#define LCD_BLK   32
+#define SCREEN_WIDTH 128
+#define SCREEN_HEIGHT 64
 
-Adafruit_ST7789 lcd(LCD_CS, LCD_DC, LCD_RST);
+#define OLED_SDA 4
+#define OLED_SCL 15
+
+Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
 
 void setup() {
     Serial.begin(115200);
     delay(1000);
 
-    // Backlight ON
-    pinMode(LCD_BLK, OUTPUT);
-    digitalWrite(LCD_BLK, HIGH);
+    Serial.println("OLED TEST START");
 
-    // Initialize SPI
-    lcd.init(170, 320); // Initialize the 170x320 ST7789
-    
-    lcd.fillScreen(ST77XX_RED);
-    delay(2000);
+    Wire.begin(OLED_SDA, OLED_SCL);
 
-    lcd.fillScreen(ST77XX_GREEN);
-    delay(2000);
+    if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
+        Serial.println("OLED NOT FOUND");
+        while (true) {
+            delay(1000);
+        }
+    }
 
-    lcd.fillScreen(ST77XX_BLUE);
-    delay(2000);
+    Serial.println("OLED FOUND!");
 
-    lcd.fillScreen(ST77XX_BLACK);
+    // TEST 1: entire screen WHITE
+    display.clearDisplay();
+    display.fillScreen(SSD1306_WHITE);
+    display.display();
 
-    lcd.setTextColor(ST77XX_WHITE);
-    lcd.setTextSize(3);
-    lcd.setCursor(20, 50);
-    lcd.println("HELLO!");
+    Serial.println("SCREEN SHOULD BE WHITE");
 
-    Serial.println("DISPLAY TEST COMPLETE");
+    delay(6000);
+
+    // TEST 2: entire screen BLACK
+    display.clearDisplay();
+    display.display();
+
+    Serial.println("SCREEN SHOULD BE BLACK");
+
+    delay(1000);
+
+    // TEST 3: TEXT
+    display.setTextColor(SSD1306_WHITE);
+    display.setTextSize(2);
+    display.setCursor(0, 0);
+    display.println("HELLO");
+
+    display.setTextSize(1);
+    display.setCursor(0, 30);
+    display.println("ESP32 OLED");
+
+    display.display();
+
+    Serial.println("TEXT DRAW COMPLETE");
 }
 
 void loop() {
-  
 }
+
+
+/*
+
+ESP32
+  │
+  ├── firmware boots       ✅
+  ├── Wire/I²C works       ✅
+  ├── device at 0x3C       ✅
+  ├── SSD1306 init         ✅
+  ├── framebuffer writes   ✅
+  ├── display() executes   ✅
+  │
+  └── PHYSICAL IMAGE       ❌
+
+*/
