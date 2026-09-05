@@ -3,30 +3,38 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_ST7789.h>
 
-#define TFT_MOSI 23
-#define TFT_SCLK 18
-#define TFT_CS   15
-#define TFT_DC   2
-#define TFT_RST  4
-#define TFT_BL   32
+#define LCD_MOSI 23
+#define LCD_SCLK 18
+#define LCD_CS   15
+#define LCD_DC   2
+#define LCD_RST  4
+#define LCD_BLK   32
 
-Adafruit_ST7789 tft = Adafruit_ST7789(TFT_CS, TFT_DC, TFT_RST);
+Adafruit_ST7789 lcd(LCD_CS, LCD_DC, LCD_RST);
 
 void setup() {
-    pinMode(TFT_BL, OUTPUT);
-    digitalWrite(TFT_BL, HIGH);
+    Serial.begin(115200);
+    delay(1000);
 
-    SPI.begin(TFT_SCLK, -1, TFT_MOSI, TFT_CS);
+    // Backlight
+    pinMode(LCD_BLK, OUTPUT);
+    digitalWrite(LCD_BLK, HIGH);
 
-    tft.init(170, 320);
-    tft.setRotation(1);
+    // Initialize SPI
+    SPI.begin(LCD_SCLK, -1, LCD_MOSI, LCD_CS);
 
-    tft.fillScreen(ST77XX_BLACK);
+    // Initialize the 170x320 ST7789
+    lcd.init(170, 320);
 
-    tft.setTextColor(ST77XX_WHITE);
-    tft.setTextSize(3);
-    tft.setCursor(30, 50);
-    tft.println("HELLO!");
+    lcd.setRotation(1);
+    lcd.fillScreen(ST77XX_BLACK);
+
+    lcd.setTextColor(ST77XX_WHITE);
+    lcd.setTextSize(2);
+    lcd.setCursor(10, 20);
+    lcd.println("HELLO!");
+
+    Serial.println("DISPLAY TEST COMPLETE");
 }
 
 void loop() {
