@@ -6,7 +6,7 @@
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64
 
-#define OLED_SDA 3
+#define OLED_SDA 21
 #define OLED_SCL 22
 
 /*
