@@ -21,17 +21,16 @@ void setup() {
     Serial.begin(115200);
     delay(1000);
 
-    Serial.println("================================");
     Serial.println("OLED TEST START");
-    Serial.println("SDA = GPIO3");
-    Serial.println("SCL = GPIO22");
-    Serial.println("================================");
 
     Wire.begin(OLED_SDA, OLED_SCL);
 
+    Serial.println("Using SDA = 21");
+    Serial.println("Using SCL = 22");
+
     if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
         Serial.println("OLED NOT FOUND!");
-        
+
         while (true) {
             delay(1000);
         }
@@ -47,20 +46,13 @@ void setup() {
     Serial.println("WHITE SCREEN");
     delay(3000);
 
-    // BLACK SCREEN
-    display.clearDisplay();
-    display.display();
-
-    Serial.println("BLACK SCREEN");
-    delay(1000);
-
     // TEXT TEST
     display.clearDisplay();
 
     display.setTextColor(SSD1306_WHITE);
     display.setTextSize(2);
     display.setCursor(0, 0);
-    display.println("HELLO!");
+    display.println("WORKINGGGGGG!!!!");
 
     display.setTextSize(1);
     display.setCursor(0, 30);
@@ -87,6 +79,6 @@ ESP32
   ├── framebuffer writes   ✅
   ├── display() executes   ✅
   │
-  └── PHYSICAL IMAGE       ❌
+  └── PHYSICAL IMAGE     ✅  
 
 */
