@@ -18,6 +18,42 @@
 
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
 
+void showSystemStatus() {
+    display.clearDisplay();
+
+    display.setTextColor(SSD1306_WHITE);
+
+    display.setTextSize(1);
+    display.setCursor(0, 0);
+    display.println("ESP ENGINEERING LAB");
+
+    display.drawLine(0, 10, 127, 10, SSD1306_WHITE);
+
+    display.setCursor(0, 15);
+    display.print("CPU: ");
+    display.print(getCpuFrequencyMhz());
+    display.println(" MHz");
+
+    display.setCursor(0, 26);
+    display.print("HEAP: ");
+    display.print(ESP.getFreeHeap() / 1024);
+    display.println(" KB");
+
+    display.setCursor(0, 37);
+    display.print("FLASH: ");
+    display.print(ESP.getFlashChipSize() / (1024 * 1024));
+    display.println(" MB");
+
+    display.setCursor(0, 48);
+    display.print("WIFI: ");
+    display.println(WiFi.status() == WL_CONNECTED ? "CONNECTED" : "OFFLINE");
+
+    display.setCursor(0, 58);
+    display.println("[ SYSTEM READY ]");
+
+    display.display();
+}
+
 void setup() {
     Serial.begin(115200);
     delay(1000);
