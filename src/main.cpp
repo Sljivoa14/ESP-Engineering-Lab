@@ -21,12 +21,17 @@ void setup() {
     Serial.begin(115200);
     delay(1000);
 
+    Serial.println("================================");
     Serial.println("OLED TEST START");
+    Serial.println("SDA = GPIO3");
+    Serial.println("SCL = GPIO22");
+    Serial.println("================================");
 
     Wire.begin(OLED_SDA, OLED_SCL);
 
     if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
-        Serial.println("OLED NOT FOUND");
+        Serial.println("OLED NOT FOUND!");
+        
         while (true) {
             delay(1000);
         }
@@ -34,32 +39,33 @@ void setup() {
 
     Serial.println("OLED FOUND!");
 
-    // TEST 1: entire screen WHITE
+    // WHITE SCREEN
     display.clearDisplay();
     display.fillScreen(SSD1306_WHITE);
     display.display();
 
-    Serial.println("SCREEN SHOULD BE WHITE");
+    Serial.println("WHITE SCREEN");
+    delay(3000);
 
-    delay(6000);
-
-    // TEST 2: entire screen BLACK
+    // BLACK SCREEN
     display.clearDisplay();
     display.display();
 
-    Serial.println("SCREEN SHOULD BE BLACK");
-
+    Serial.println("BLACK SCREEN");
     delay(1000);
 
-    // TEST 3: TEXT
+    // TEXT TEST
+    display.clearDisplay();
+
     display.setTextColor(SSD1306_WHITE);
     display.setTextSize(2);
     display.setCursor(0, 0);
-    display.println("HELLO");
+    display.println("HELLO!");
 
     display.setTextSize(1);
     display.setCursor(0, 30);
     display.println("ESP32 OLED");
+    display.println("TEST SUCCESS");
 
     display.display();
 
