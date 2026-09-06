@@ -6,13 +6,14 @@
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64
 
-#define OLED_SDA 4
-#define OLED_SCL 15
+#define OLED_SDA 3
+#define OLED_SCL 22
 
+/*
 #define OLED_RESET -1
 
 #define SDA_PIN 21
-#define SCL_PIN 22
+#define SCL_PIN 22*/
 
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
 
