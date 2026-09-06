@@ -81,4 +81,43 @@ ESP32
   │
   └── PHYSICAL IMAGE     ✅  
 
+
+  PHASE 1 ─ OLED FOUNDATION       ← here currently
+    │
+    ├── Status screen             <- next up
+    ├── CPU/heap information
+    ├── Wi-Fi status
+    └── uptime
+          ↓
+PHASE 2 ─ HARDWARE MONITOR
+    │
+    ├── free heap
+    ├── CPU frequency
+    ├── flash size
+    ├── PSRAM
+    └── chip information
+          ↓
+PHASE 3 ─ NETWORK LAB
+    │
+    ├── Wi-Fi scanner
+    ├── IP information
+    ├── signal strength
+    └── network diagnostics
+          ↓
+PHASE 4 ─ CYBERSECURITY LAB
+    │
+    ├── device/network inventory
+    ├── service diagnostics
+    ├── packet/network telemetry
+    └── defensive security experiments
+          ↓
+PHASE 5 ─ ESP ENGINEERING LAB
+    │
+    ├── OLED UI
+    ├── buttons/input
+    ├── sensors
+    ├── camera
+    └── modular applications
+
+
 */
