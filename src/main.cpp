@@ -2,6 +2,7 @@
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
+#include <WiFi.h>
 
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64
@@ -119,5 +120,17 @@ PHASE 5 ─ ESP ENGINEERING LAB
     ├── camera
     └── modular applications
 
+
+
+┌────────────────┐
+│ ESP ENGINEERING│
+│                │
+│ CPU: 240 MHz   │
+│ HEAP: 287 KB   │
+│ PSRAM: 8 MB    │
+│ WiFi: OFF      │
+│                │
+│ [SYSTEM READY] │
+└────────────────┘
 
 */
