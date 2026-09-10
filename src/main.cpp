@@ -121,9 +121,9 @@ A NEW FILE STRUCTRE:
 └── ESP-Engineering-Lab-Camera/
     ├── platformio.ini
     └── src/
-        └── main.cpp     <-     Problem: null-pointer-style crash during camera setup.
-                                Current evidence: PSRAM is definitely working; crash occurs immediately afterward.
-                                Next objective: identify whether the crash occurs while building the config or inside esp_camera_init().
+        └── main.cpp     <-     Problem: NONE
+                                Current evidence: S3 CAMERA NODE ALIVE
+                                Next objective: TAKE A SINGLE PICTURE
 
 
 NETWORK LAB
