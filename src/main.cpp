@@ -89,7 +89,7 @@ void setup() {
     display.setTextColor(SSD1306_WHITE);
     display.setTextSize(2);
     display.setCursor(0, 0);
-    display.println("WORKINGGGGGG!!!!");
+    display.println("COLeGiO SM");
 
     display.setTextSize(1);
     display.setCursor(0, 30);
@@ -107,48 +107,40 @@ void loop() {
 
 /*
 
-ESP32
-  │
-  ├── firmware boots       ✅
-  ├── Wire/I²C works       ✅
-  ├── device at 0x3C       ✅
-  ├── SSD1306 init         ✅
-  ├── framebuffer writes   ✅
-  ├── display() executes   ✅
-  │
-  └── PHYSICAL IMAGE     ✅  
+OLED SCREEN WORKS
+
+OLED CAMERA [WORKING ON IT]
+
+A NEW FILE STRUCTRE:
+│
+├── ESP-Engineering-Lab-WROOM/
+│   ├── platformio.ini
+│   └── src/
+│       └── main.cpp
+│
+└── ESP-Engineering-Lab-Camera/
+    ├── platformio.ini
+    └── src/
+        └── main.cpp     <-     Problem: null-pointer-style crash during camera setup.
+                                Current evidence: PSRAM is definitely working; crash occurs immediately afterward.
+                                Next objective: identify whether the crash occurs while building the config or inside esp_camera_init().
 
 
-  PHASE 1 ─ OLED FOUNDATION       ← here currently
-    │
-    ├── Status screen             <- next up
-    ├── CPU/heap information
-    ├── Wi-Fi status
-    └── uptime
-          ↓
-PHASE 2 ─ HARDWARE MONITOR
-    │
-    ├── free heap
-    ├── CPU frequency
-    ├── flash size
-    ├── PSRAM
-    └── chip information
-          ↓
-PHASE 3 ─ NETWORK LAB
+NETWORK LAB
     │
     ├── Wi-Fi scanner
     ├── IP information
     ├── signal strength
     └── network diagnostics
           ↓
-PHASE 4 ─ CYBERSECURITY LAB
+CYBERSECURITY LAB
     │
     ├── device/network inventory
     ├── service diagnostics
     ├── packet/network telemetry
     └── defensive security experiments
           ↓
-PHASE 5 ─ ESP ENGINEERING LAB
+ESP ENGINEERING LAB
     │
     ├── OLED UI
     ├── buttons/input
