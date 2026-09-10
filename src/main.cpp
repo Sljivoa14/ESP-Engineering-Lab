@@ -121,9 +121,9 @@ A NEW FILE STRUCTRE:
 └── ESP-Engineering-Lab-Camera/
     ├── platformio.ini
     └── src/
-        └── main.cpp     <-     Problem: NONE
-                                Current evidence: S3 CAMERA NODE ALIVE
-                                Next objective: TAKE A SINGLE PICTURE
+        └── main.cpp     <-     Problem:  FRAME CAPTURE FAILED
+                                Current evidence: S3 CAMERA NODE ALIVE but frame capture fails.  Null-pointer-style crash during camera setup.
+                                Next objective: TAKE A SINGLE PICTURE/ frane capturing
 
 
 NETWORK LAB
