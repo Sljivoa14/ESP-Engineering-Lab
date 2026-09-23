@@ -211,9 +211,9 @@ void setup() {
 
   // Draw the mini picture in the center
   display.drawBitmap(
-    32, 11,          // X, Y position
+    42, 22,          // X, Y position
     globeBitmap,
-    64, 42,          // width, height
+    80, 52,          // width, height
     SSD1306_WHITE
   );
 
