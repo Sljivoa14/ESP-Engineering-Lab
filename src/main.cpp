@@ -213,7 +213,7 @@ void setup() {
   display.drawBitmap(
     32, 11,          // X, Y position
     globeBitmap,
-    64, 22,          // width, height
+    64, 42,          // width, height
     SSD1306_WHITE
   );
 
