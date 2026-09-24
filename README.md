@@ -10,7 +10,7 @@
 | Camera driver         | 🟢     |
 | Camera initialization | 🟢     |
 | Main loop             | 🟢     |
-| Frame capture         | ⏳      |
+| Frame capture         | 🟢       |
 | Wi-Fi                 | ⏳      |
 | Web server            | ⏳      |
 | ESP32-WROOM SYSTEM STATS        | ⏳   |
