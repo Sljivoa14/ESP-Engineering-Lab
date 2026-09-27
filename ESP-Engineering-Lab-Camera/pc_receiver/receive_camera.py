@@ -16,13 +16,12 @@ while True:
         print(f"Image size: {size} bytes")
 
         #Waiting for IMAGE_START
-        line = ser.readline()
+        line = ser.readline().strip()
 
-        if line.strip() == b"IMAGE_START":
-            print("ERROR img not found")
-            continue
+        while line != b"IMAGE_START":
+            line = ser.readline().strip()
 
-        print("REciving image data...")
+        print("Reciving image data...")
 
         image_data = ser.read(size)
 
