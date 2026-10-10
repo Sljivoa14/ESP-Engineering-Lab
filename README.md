@@ -11,6 +11,9 @@
 | Camera initialization | 🟢     |
 | Main loop             | 🟢     |
 | Frame capture         | 🟢       |
+| ESP32-S3 + OV3660   | 🟢         |
+|Separate USB serial ports | 🟢 |
+|Image capture and transfer |🟢  |
 | Wi-Fi                 | ⏳      |
 | Web server            | ⏳      |
 | ESP32-WROOM SYSTEM STATS        | ⏳   |

@@ -1,4 +1,4 @@
-/*
+
 #include <Arduino.h>
 #include <Wire.h>
 #include <Adafruit_GFX.h>
@@ -86,7 +86,7 @@ void setup() {
     display.setTextColor(SSD1306_WHITE);
     display.setTextSize(2);
     display.setCursor(0, 0);
-    display.println("COLeGiO SM");
+    display.println("WORKS !!!");
 
     display.setTextSize(1);
     display.setCursor(0, 30);
@@ -101,7 +101,7 @@ void setup() {
 void loop() {
 }
 
-
+/*
 
 
 OLED SCREEN WORKS
@@ -157,7 +157,7 @@ ESP ENGINEERING LAB
 │ [SYSTEM READY] │
 └────────────────┘
 
-*/
+
 
 #include <Arduino.h>
 #include <Wire.h>
@@ -224,3 +224,4 @@ void loop() {
 }
 
 
+*/
