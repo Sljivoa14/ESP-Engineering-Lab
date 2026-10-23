@@ -14,7 +14,7 @@
 | ESP32-S3 + OV3660   | 🟢         |
 |Separate USB serial ports | 🟢 |
 |Image capture and transfer |🟢  |
-| Wi-Fi                 | ⏳      |
+| Wi-Fi                 | ⏳  (next)     |
 | Web server            | ⏳      |
 | ESP32-WROOM SYSTEM STATS        | ⏳   |
 | Image/stream          | ⏳      |

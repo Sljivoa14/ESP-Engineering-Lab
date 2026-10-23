@@ -129,7 +129,7 @@ void setup() {
 
       esp_camera_fb_return(fb);
 
-      Serial.println("✅ IMAGE SENT !!");
+      Serial.println("✅ IMAGE SENT!!");
     }
 
     Serial.println("================================");
