@@ -18,3 +18,4 @@
 | Web server            | ⏳      |
 | ESP32-WROOM SYSTEM STATS        | ⏳   |
 | Image/stream          | ⏳      |
+| future component        | ⏳      |
