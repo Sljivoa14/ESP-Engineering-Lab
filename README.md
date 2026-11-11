@@ -19,3 +19,7 @@
 | ESP32-WROOM SYSTEM STATS        | ⏳   |
 | Image/stream          | ⏳      |
 | future component        | ⏳      |
+
+
+The WROOM OLED Command Center is working, and the merged ESP32-S3 Camera Node project has successfully compiled. 
+- Next step: upload the camera firmware via COM6, verify camera initialization, and test JPEG transmission to the PC using Python.
