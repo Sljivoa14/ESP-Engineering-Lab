@@ -1,4 +1,5 @@
 import serial
+import os
 
 PORT = "COM4" # will need modification
 BAUD = 115200
@@ -37,8 +38,10 @@ while True:
         if b"IMAGE_END" not in end_marker:
             print("WARNING: IMAGE_END not found")
 
-        with open("camera.jpg", "wb") as file:
+        output_path = os.path.abspath("camera.jpg")
+        with open(output_path, "wb") as file:
             file.write(image_data)
+            print(f"Image saved to {output_path}")
 
         print("✅ IMAGE RECEIVED")
         print(f"Saved {len(image_data)} bytes → camera.jpg")
