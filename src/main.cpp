@@ -11,7 +11,14 @@
 #define OLED_SDA 21
 #define OLED_SCL 22
 
+bool backendOnline = false;
+bool cameraOnline = false;
+bool wifiConnected = false;
 
+unsigned long lastRefresh = 0;
+
+char serialBuffer[64];
+int bufferIndex = 0;
 
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
 
@@ -49,6 +56,40 @@ void showSystemStatus() {
     display.println("[ SYSTEM READY ]");
 
     display.display();
+}
+
+void processSerial(){
+    while (Serial.available()){
+
+        char c = Serial.read();
+
+        if (c == '\n') {
+
+            serialBuffer[bufferIndex] = '\0';
+
+            if (strcmp(serialBuffer, "BACKEND:ONLINE") == 0) {
+                backendOnline = true;
+            }
+
+            else if (strcmp(serialBuffer, "BACKEND:OFFLINE") == 0) {
+                backendOnline = false;
+            }
+
+            else if (strcmp(serialBuffer, "CAMERA:ONLINE") == 0) {
+                cameraOnline = true;
+            }
+
+            else if (strcmp(serialBuffer, "CAMERA:OFFLINE") == 0) {
+                cameraOnline = false;
+            }
+
+            bufferIndex = 0;
+        }
+
+        else if (bufferIndex < sizeof(serialBuffer) - 1) {
+            serialBuffer[bufferIndex++] = c;
+        }
+    }
 }
 
 void setup() {
