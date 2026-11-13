@@ -22,37 +22,37 @@ int bufferIndex = 0;
 
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
 
-void showSystemStatus() {
+void showDashboard() {
+
     display.clearDisplay();
 
     display.setTextColor(SSD1306_WHITE);
-
     display.setTextSize(1);
+
     display.setCursor(0, 0);
     display.println("ESP ENGINEERING LAB");
 
     display.drawLine(0, 10, 127, 10, SSD1306_WHITE);
 
-    display.setCursor(0, 15);
+    display.setCursor(0, 14);
     display.print("CPU: ");
     display.print(getCpuFrequencyMhz());
     display.println(" MHz");
 
-    display.setCursor(0, 26);
+    display.setCursor(0, 24);
     display.print("HEAP: ");
     display.print(ESP.getFreeHeap() / 1024);
     display.println(" KB");
 
-    display.setCursor(0, 37);
-    display.print("FLASH: ");
-    display.print(ESP.getFlashChipSize() / (1024 * 1024));
-    display.println(" MB");
+    display.setCursor(0, 34);
+    display.print("BACKEND: ");
+    display.println(backendOnline ? "ONLINE" : "OFFLINE");
 
-    display.setCursor(0, 48);
-    display.print("WIFI: ");
-    display.println(WiFi.status() == WL_CONNECTED ? "CONNECTED" : "OFFLINE");
+    display.setCursor(0, 44);
+    display.print("CAMERA: ");
+    display.println(cameraOnline ? "ONLINE" : "OFFLINE");
 
-    display.setCursor(0, 58);
+    display.setCursor(0, 56);
     display.println("[ SYSTEM READY ]");
 
     display.display();
@@ -67,7 +67,7 @@ void processSerial(){
 
             serialBuffer[bufferIndex] = '\0';
 
-            if (strcmp(serialBuffer, "BACKEND:ONLINE") == 0) {
+            if (strcmp(serialBuffer, "BACKEND:ONLINE") == 0) {  //strcmp() compares the received message against our protocol.
                 backendOnline = true;
             }
 
