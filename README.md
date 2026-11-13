@@ -12,6 +12,7 @@
 | Main loop             | 🟢     |
 | Frame capture         | 🟢       |
 | ESP32-S3 + OV3660   | 🟢         |
+| ESP32-S3 + OV3660 COMMUNICATION  | 🟢         |
 |Separate USB serial ports | 🟢 |
 |Image capture and transfer |🟢  |
 | Wi-Fi                 | ⏳  (next)     |

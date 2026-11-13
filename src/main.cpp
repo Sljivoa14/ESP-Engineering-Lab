@@ -105,7 +105,6 @@ void setup() {
 
     if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
         Serial.println("OLED NOT FOUND!");
-
         while (true) {
             delay(1000);
         }
@@ -144,7 +143,6 @@ void loop() {
 
     if (millis() - lastRefresh >= 1000) {
         lastRefresh = millis();
-        
         showDashboard();
     }
 }
