@@ -140,6 +140,13 @@ void setup() {
 }
 
 void loop() {
+    processSerial();
+
+    if (millis() - lastRefresh >= 1000) {
+        lastRefresh = millis();
+        
+        showDashboard();
+    }
 }
 
 /*
